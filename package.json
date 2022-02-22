@@ -4,6 +4,9 @@
   "description": "Innlevering Elsa & Gila",
   "main": "index.js",
   "scripts": {
+    "dev": "concurrently npm:dev:client npm:dev:server",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && npm run dev",
     "start": "cd server && npm start",
     "build": "npm run build:client && npm run build:server",
     "build:client": "cd client && npm install --include-dev && npm run build",
@@ -26,6 +29,7 @@
   "homepage": "https://github.com/kristiania-pg6301-2022/pg6301-innlevering-Elsa-tech#readme",
   "devDependencies": {
     "babel-jest": "^27.5.1",
+    "concurrently": "^7.0.0",
     "husky": "^7.0.4",
     "jest": "^27.5.1",
     "prettier": "^2.5.1"

@@ -18,7 +18,7 @@ Applikasjonen skal vise at dere behersker:
 - [ ] Heroku
 ##Oppsummert:
 
-- [ ] Få en Parcel til å bygge en React applikasjon
+- [x] Få en Parcel til å bygge en React applikasjon
 - [ ] Få React Router til å navigere rundt i applikasjonen
 - [ ] Få React til å hente og lagre informasjon til et API
 - [ ] Få Github Actions til å kjøre Jest-testene og publisere coverage til Coveralls
