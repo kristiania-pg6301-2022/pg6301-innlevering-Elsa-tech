@@ -1,4 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { Application } from "./quizApp.jsx";
 
-ReactDOM.render(<h1>Workin</h1>, document.getElementById("app"));
+ReactDOM.render(<Application />, document.getElementById("app"));
