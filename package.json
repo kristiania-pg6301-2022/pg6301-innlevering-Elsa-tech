@@ -13,7 +13,6 @@
     "build:server": "cd server && npm install",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx}\"",
-    "test": "jest",
     "prepare": "husky install"
   },
   "repository": {
