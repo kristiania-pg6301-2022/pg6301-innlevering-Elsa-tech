@@ -5,6 +5,11 @@ export function FrontPage() {
   return (
     <div>
       <h1>Quiz Application</h1>
+      <ul>
+        <li>
+          <Link to={"/question"}>Answer random question</Link>
+        </li>
+      </ul>
     </div>
   );
 }
