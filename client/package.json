@@ -5,7 +5,8 @@
   "scripts": {
     "test": "jest",
     "dev": "parcel watch index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "verify": "jest --collectCoverage"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,13 @@
     ]
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "/*.{jsx,js}",
+      "!coverage/",
+      "!dist/",
+      "!babel.config.js",
+      "!config/"
+    ]
   }
 }
