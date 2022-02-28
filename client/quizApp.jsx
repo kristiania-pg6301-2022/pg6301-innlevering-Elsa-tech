@@ -1,5 +1,7 @@
 import * as React from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { isCorrectAnswer, randomQuestion } from "./quiz";
+import { useState } from "react";
 
 export function FrontPage() {
   return (
@@ -15,9 +17,18 @@ export function FrontPage() {
 }
 
 function ShowQuestion() {
+  const [question] = useState(randomQuestion);
+
   return (
     <div>
-      <h1>Question</h1>
+      <h1>{question.question}</h1>
+      {Object.keys(question.answers)
+        .filter((a) => question.answers[a])
+        .map((a) => (
+          <div key={a}>
+            <button>{question.answers[a]}</button>
+          </div>
+        ))}
     </div>
   );
 }

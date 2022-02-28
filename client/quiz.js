@@ -1,4 +1,12 @@
-const questions = [
+export function randomQuestion() {
+  return Questions[Math.trunc(Math.random() * Questions.length)];
+}
+
+export function isCorrectAnswer(question, answer) {
+  return question.correct_answers[answer + "_correct"] === "true";
+}
+
+const Questions = [
   {
     id: 152,
     question: "What is the correct HTML element for playing audio files?",
