@@ -6,7 +6,7 @@
     "test": "jest",
     "dev": "parcel watch index.html",
     "build": "parcel build index.html",
-    "verify": "jest --collectCoverage"
+    "verify:client": "jest --collectCoverage"
   },
   "keywords": [],
   "author": "",
