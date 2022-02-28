@@ -1,6 +1,9 @@
 {
   "name": "pg6301-innlevering-elsa-tech",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.13.0"
+  },
   "description": "Innlevering Elsa & Gila",
   "main": "index.js",
   "scripts": {
