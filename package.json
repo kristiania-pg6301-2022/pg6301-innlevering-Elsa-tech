@@ -4,8 +4,7 @@
   "description": "Innlevering Elsa & Gila",
   "main": "index.js",
   "scripts": {
-    "verify": "npm run verify:client",
-    "verify:client": "cd client && npm run test:coverage",
+    "verify": "cd client && npm run verify",
     "dev": "concurrently npm:dev:client npm:dev:server",
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run dev",

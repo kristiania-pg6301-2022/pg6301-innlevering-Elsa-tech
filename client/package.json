@@ -5,6 +5,7 @@
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --collectCoverage",
+    "verify": "npm run test:coverage",
     "dev": "parcel watch index.html",
     "build": "parcel build index.html"
   },
