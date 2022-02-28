@@ -4,7 +4,7 @@
   "engines": {
     "node": "16.13.0"
   },
-  "description": "Innlevering Elsa & Gila",
+  "description": "Innlevering fyfh Elsa & Gila",
   "main": "index.js",
   "scripts": {
     "verify": "cd client && npm run verify",
