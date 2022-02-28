@@ -11,14 +11,14 @@ Målet med innleveringen er at man skal kjøre en webapplikasjon på skytjeneste
 
 Applikasjonen skal vise at dere behersker:
 
-- [ ] Parcel
-- [ ] React
+- [x] Parcel
+- [x] React
 - [ ] React Router
 - [ ] Jest
-- [ ] Github Actions
+- [x] Github Actions
 - [ ] Coveralls
 - [ ] Express
-- [ ] Heroku
+- [x] Heroku
 ##Oppsummert:
 
 - [x] Få en Parcel til å bygge en React applikasjon
