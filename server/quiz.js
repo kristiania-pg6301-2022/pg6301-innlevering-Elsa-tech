@@ -6,7 +6,7 @@ export function isCorrectAnswer(question, answer) {
   return question.correct_answers[answer + "_correct"] === "true";
 }
 
-const Questions = [
+export const Questions = [
   {
     id: 152,
     question: "What is the correct HTML element for playing audio files?",
