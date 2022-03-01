@@ -33,12 +33,17 @@ function ShowQuestion() {
   );
 }
 
+function ShowScore() {
+  return <div></div>;
+}
+
 export function Application() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path={"/"} element={<FrontPage />} />
         <Route path={"/question"} element={<ShowQuestion />} />
+        <Route path={"/score"} element={<ShowScore />} />
       </Routes>
     </BrowserRouter>
   );
