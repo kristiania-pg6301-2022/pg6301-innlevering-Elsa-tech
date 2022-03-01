@@ -1,10 +1,11 @@
 import express from "express";
-import { isCorrectAnswer, randomQuestion, Questions } from "./quiz.js";
+import { isCorrectAnswer, randomQuestion } from "./quiz.js";
 
 export const QuizApp = express.Router();
 
-QuizApp.get("/", (req, res, next) => {
+QuizApp.get("/", (req, res) => {
   const question = randomQuestion();
+
   res.json({
     id: question.id,
     question: question.question,

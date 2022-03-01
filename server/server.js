@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use("/api/question", QuizApp);
 
-app.use(express.static("../client/dist"));
+app.use(express.static(path.resolve("../client/dist")));
 
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {
