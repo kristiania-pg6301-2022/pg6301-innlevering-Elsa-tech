@@ -15,26 +15,4 @@ describe("Quiz Application", () => {
     expect(element.querySelector("h1").innerHTML).toEqual("Quiz Application");
     expect(element.innerHTML).toMatchSnapshot();
   });
-
-  it("Shows question with answer-options", () => {
-    const question = {
-      id: "1",
-      question: "Does this function work?",
-      answers: {
-        answer_a: "yes",
-        answer_b: "no",
-        answer_c: "maybe",
-      },
-    };
-    const element = document.createElement("div");
-    ReactDOM.render(
-      <MemoryRouter initialEntries={"/question"}>
-        <QuestionContext.Provider value={{ randomQuestion: () => question }}>
-          <ShowQuestion />
-        </QuestionContext.Provider>
-      </MemoryRouter>,
-      element
-    );
-    expect(element.innerHTML).toMatchSnapshot();
-  });
 });
