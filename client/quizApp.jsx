@@ -16,13 +16,7 @@ export function FrontPage() {
   );
 }
 
-export function ShowQuestion({ questionApi }) {
-  const [question, setQuestion] = useState({});
-
-  useEffect(async () => {
-    setQuestion(await questionApi.getQuestion());
-  }, []);
-
+export function ShowQuestion({ question }) {
   return (
     <div>
       <h1>{question.question}</h1>
@@ -33,9 +27,27 @@ export function ShowQuestion({ questionApi }) {
             <button>{question.answers[a]}</button>
           </div>
         ))}
-      {JSON.stringify({ questionApi })}
     </div>
   );
+}
+
+function QuestionComponent() {
+  const [question, setQuestion] = useState();
+
+  async function handleLoadQuestion() {
+    const res = await fetch("/api/question");
+    setQuestion(await res.json());
+  }
+
+  if (!question) {
+    return (
+      <div>
+        <button onClick={handleLoadQuestion}>Load New Question</button>
+      </div>
+    );
+  }
+
+  return <ShowQuestion question={question} />;
 }
 
 function ShowScore() {
@@ -47,10 +59,7 @@ export function Application() {
     <BrowserRouter>
       <Routes>
         <Route path={"/"} element={<FrontPage />} />
-        <Route
-          path={"/question"}
-          element={<ShowQuestion questionApi={questionApi} />}
-        />
+        <Route path={"/question"} element={<QuestionComponent />} />
         <Route path={"/score"} element={<ShowScore />} />
       </Routes>
     </BrowserRouter>
