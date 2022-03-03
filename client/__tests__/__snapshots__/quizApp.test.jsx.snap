@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Quiz Application Shows Frontpage 1`] = `"<div><h1>Quiz Application</h1><ul><li><a href=\\"/question\\">Answer random question</a></li></ul></div>"`;
+
+exports[`Quiz Application Shows front page 1`] = `"<div><h1>Amazing quiz application!</h1><div><a href=\\"/question\\">Take a quiz!</a></div><div><a href=\\"/score\\">See your quiz score here</a></div></div>"`;

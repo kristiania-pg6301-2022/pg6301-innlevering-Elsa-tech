@@ -12,7 +12,9 @@ describe("Quiz Application", () => {
       </MemoryRouter>,
       element
     );
-    expect(element.querySelector("h1").innerHTML).toEqual("Quiz Application");
+    expect(element.querySelector("h1").innerHTML).toEqual(
+      "Amazing quiz application!"
+    );
     expect(element.innerHTML).toMatchSnapshot();
   });
 });
