@@ -1,7 +1,6 @@
 import * as React from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { questionApi } from "./questionApi.js";
+import { useState } from "react";
 
 export function FrontPage() {
   return (

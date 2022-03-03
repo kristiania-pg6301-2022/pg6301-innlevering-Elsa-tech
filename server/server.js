@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use("/api/question", QuizApp);
+app.use("/api", QuizApp);
 
 app.use(express.static(path.resolve("../client/dist")));
 
