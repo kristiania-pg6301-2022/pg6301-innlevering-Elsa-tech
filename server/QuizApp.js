@@ -15,8 +15,7 @@ QuizApp.get("/question", (req, res) => {
 });
 
 QuizApp.post("/answer", (req, res) => {
-  const id = req.body.id;
-  const answer = req.body.answers;
+  const { id, answer } = req.body;
 
   const question = Questions.find((question) => question.id === id);
   if (!question) {
@@ -25,6 +24,6 @@ QuizApp.post("/answer", (req, res) => {
   if (isCorrectAnswer(question, answer)) {
     return res.json({ result: "correct" });
   } else {
-    return res.json({ result: "stupid bastard" });
+    return res.json({ result: "incorrect" });
   }
 });

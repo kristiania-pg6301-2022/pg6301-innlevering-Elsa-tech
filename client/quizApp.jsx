@@ -1,9 +1,14 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useLoader } from "./useLoader.jsx";
-import { fetchJSON } from "./http";
+import { fetchJSON, postJSON } from "./http";
 
-export function ShowQuestion({ question }) {
+export function ShowQuestion({ question, onReload }) {
+  async function handleAnswer(answer) {
+    const { id } = question;
+    await postJSON("/api/answer", { id, answer });
+    await onReload();
+  }
   return (
     <div>
       <h1>{question.question}</h1>
@@ -11,7 +16,9 @@ export function ShowQuestion({ question }) {
         .filter((a) => question.answers[a])
         .map((a) => (
           <div key={a}>
-            <button>{question.answers[a]}</button>
+            <button onClick={() => handleAnswer(a)}>
+              {question.answers[a]}
+            </button>
           </div>
         ))}
     </div>
@@ -29,7 +36,7 @@ export function QuestionComponent() {
     return <div>Something went wrong</div>;
   }
 
-  return <ShowQuestion question={question} />;
+  return <ShowQuestion question={question} onReload={reload} />;
 }
 
 export function ShowScore() {
