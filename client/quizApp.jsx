@@ -1,19 +1,7 @@
 import * as React from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { useState } from "react";
-
-export function FrontPage() {
-  return (
-    <div>
-      <h1>Quiz Application</h1>
-      <ul>
-        <li>
-          <Link to={"/question"}>Answer random question</Link>
-        </li>
-      </ul>
-    </div>
-  );
-}
+import { Link } from "react-router-dom";
+import { useLoader } from "./useLoader.jsx";
+import { fetchJSON } from "./http";
 
 export function ShowQuestion({ question }) {
   return (
@@ -30,37 +18,39 @@ export function ShowQuestion({ question }) {
   );
 }
 
-function QuestionComponent() {
-  const [question, setQuestion] = useState();
+export function QuestionComponent() {
+  const { reload, quizData } = useLoader(
+    async () => await fetchJSON("/api/question")
+  );
 
-  async function handleLoadQuestion() {
-    const res = await fetch("/api/question");
-    setQuestion(await res.json());
-  }
+  const question = quizData;
 
   if (!question) {
-    return (
-      <div>
-        <button onClick={handleLoadQuestion}>Load New Question</button>
-      </div>
-    );
+    return <div>Something went wrong</div>;
   }
 
   return <ShowQuestion question={question} />;
 }
 
-function ShowScore() {
-  return <div>Working</div>;
+export function ShowScore() {
+  return (
+    <div>
+      <h1>Score board</h1>
+      <div>You have 0 correct answers out of 0 questions.</div>
+    </div>
+  );
 }
 
-export function Application() {
+export function QuizApp() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={"/"} element={<FrontPage />} />
-        <Route path={"/question"} element={<QuestionComponent />} />
-        <Route path={"/score"} element={<ShowScore />} />
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <h1>Amazing quiz application!</h1>
+      <div>
+        <Link to={"/question"}>Take a quiz!</Link>
+      </div>
+      <div>
+        <Link to={"score"}>See your quiz score here</Link>
+      </div>
+    </div>
   );
 }
