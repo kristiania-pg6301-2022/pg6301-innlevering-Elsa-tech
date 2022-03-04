@@ -8,7 +8,7 @@
   "description": "Innlevering Elsa & Gila",
   "main": "index.js",
   "scripts": {
-    "verify": "npm run verify:client && npm run verify:server",
+    "verify": "npm run verify:client",
     "verify:client": "cd client && npm run test:coverage",
     "verify:server": "cd server && npm run test:coverage",
     "dev": "concurrently npm:dev:client npm:dev:server",
