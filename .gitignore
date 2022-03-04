@@ -5,3 +5,4 @@ dist/
 /coverage/
 /client/coverage/
 /server/.env
+/server/coverage/
