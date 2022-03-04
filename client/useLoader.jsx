@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
 
-export function useLoader(fun) {
-  const [quizData, setQuizData] = useState();
+export function useLoader(loadingFunction) {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
+  const [data, setData] = useState();
 
   async function reload() {
-    setQuizData(await fun());
+    try {
+      setLoading(true);
+      setData(await loadingFunction());
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
   }
 
   useEffect(reload, []);
 
-  return { reload, quizData };
+  return { loading, error, data: data, reload };
 }

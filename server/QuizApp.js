@@ -14,6 +14,16 @@ QuizApp.get("/question", (req, res) => {
   });
 });
 
+QuizApp.get("/score", (req, res) => {
+  const score = req.signedCookies.score
+    ? JSON.parse(req.signedCookies.score)
+    : {
+        answers: 0,
+        correct: 0,
+      };
+  res.json(score);
+});
+
 QuizApp.post("/answer", (req, res) => {
   const { id, answer } = req.body;
 
@@ -21,9 +31,18 @@ QuizApp.post("/answer", (req, res) => {
   if (!question) {
     return res.sendStatus(404);
   }
+
+  const score = req.signedCookies.score
+    ? JSON.parse(req.signedCookies.score)
+    : { answers: 0, correct: 0 };
+  score.answers += 1;
+
   if (isCorrectAnswer(question, answer)) {
-    return res.json({ result: "correct" });
+    score.correct += 1;
+    res.cookie("score", JSON.stringify(score), { signed: true });
+    return res.json({ result: true });
   } else {
-    return res.json({ result: "incorrect" });
+    res.cookie("score", JSON.stringify(score), { signed: true });
+    return res.json({ result: false });
   }
 });

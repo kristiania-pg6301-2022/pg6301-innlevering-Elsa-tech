@@ -21,16 +21,19 @@ export function ShowQuestion({ question, onReload }) {
             </button>
           </div>
         ))}
+      <div>
+        <Link to={"/"}>Back to start page</Link>
+      </div>
     </div>
   );
 }
 
 export function QuestionComponent() {
-  const { reload, quizData } = useLoader(
+  const { reload, data } = useLoader(
     async () => await fetchJSON("/api/question")
   );
 
-  const question = quizData;
+  const question = data;
 
   if (!question) {
     return <div>Something went wrong</div>;
@@ -40,10 +43,31 @@ export function QuestionComponent() {
 }
 
 export function ShowScore() {
+  const {
+    data: score,
+    loading,
+    error,
+  } = useLoader(async () => await fetchJSON("/api/score"));
+
+  if (loading) {
+    return <div>Loading..</div>;
+  }
+
+  if (error) {
+    return <div>An error occurred: {error.toString()}</div>;
+  }
+
   return (
     <div>
       <h1>Score board</h1>
-      <div>You have 0 correct answers out of 0 questions.</div>
+      {score && (
+        <div>
+          <h3>
+            You have {score.correct} correct answers out of {score.answers}{" "}
+            questions.
+          </h3>
+        </div>
+      )}
     </div>
   );
 }
@@ -56,7 +80,7 @@ export function QuizApp() {
         <Link to={"/question"}>Take a quiz!</Link>
       </div>
       <div>
-        <Link to={"score"}>See your quiz score here</Link>
+        <Link to={"/score"}>See your quiz score here</Link>
       </div>
     </div>
   );
