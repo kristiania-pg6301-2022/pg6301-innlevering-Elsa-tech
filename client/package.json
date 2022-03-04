@@ -30,9 +30,13 @@
     ]
   },
   "jest": {
+    "collectCoverage": true,
     "testEnvironment": "jsdom",
     "collectCoverageFrom": [
-      "*.{jsx,js}"
+      "**/*.{tsx,ts,jsx,js}",
+      "!coverage/**",
+      "!dist/**",
+      "!index.jsx"
     ]
   }
 }

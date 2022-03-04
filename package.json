@@ -2,12 +2,13 @@
   "name": "pg6301-innlevering-elsa-tech",
   "version": "1.0.0",
   "engines": {
-    "node": "16.13.0"
+    "node": "16.13.2",
+    "npm": "8.3.1"
   },
   "description": "Innlevering Elsa & Gila",
   "main": "index.js",
   "scripts": {
-    "verify": "jest --collectCoverage",
+    "verify": "cd server && npm run verify",
     "dev": "concurrently npm:dev:client npm:dev:server",
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run dev",

@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { QuizApp, QuestionComponent, ShowScore } from "../client/quizApp.jsx";
+import { QuizApp, QuestionComponent, ShowScore } from "./quizApp";
 
 export function Application() {
   return (
