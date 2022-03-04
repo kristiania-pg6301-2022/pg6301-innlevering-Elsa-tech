@@ -4,7 +4,6 @@
   "description": "",
   "scripts": {
     "test": "jest",
-    "test:coverage": "jest --collectCoverage",
     "dev": "parcel watch index.html",
     "build": "npm install --include=dev && parcel build index.html"
   },

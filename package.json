@@ -7,9 +7,7 @@
   "description": "Innlevering Elsa & Gila",
   "main": "index.js",
   "scripts": {
-    "verify": "npm run verify:client && npm run verify:server",
-    "verify:client": "cd client && npm run test:coverage",
-    "verify:server": "cd server && npm run test:coverage",
+    "verify": "jest --collectCoverage",
     "dev": "concurrently npm:dev:client npm:dev:server",
     "dev:client": "cd client && npm run dev",
     "dev:server": "cd server && npm run dev",
@@ -48,9 +46,11 @@
     ]
   },
   "jest": {
+    "collectCoverage": true,
     "testEnvironment": "jsdom",
     "collectCoverageFrom": [
-      "client/**/*{.jsx}"
+      "client/*.{js,jsx}",
+      "server/*.{js,jsx}"
     ]
   },
   "dependencies": {
