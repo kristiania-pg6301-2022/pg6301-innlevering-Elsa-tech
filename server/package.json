@@ -5,11 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "verify": "jest --collectCoverage",
     "start": "node server.js",
     "dev": "nodemon server.js",
     "build": "npm install",
-    "test": "jest"
+    "test": "jest",
+    "verify": "jest --collectCoverage"
   },
   "keywords": [],
   "author": "",
