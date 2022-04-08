@@ -1,0 +1,8 @@
+/.idea/
+node_modules/
+/client/.parcel-cache/
+dist/
+/coverage/
+/client/coverage/
+/server/.env
+/server/coverage/
